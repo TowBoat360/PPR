@@ -1,4 +1,4 @@
-ToolSet: w64 11.0 (local)@F:\PPR\CLion 2023.2.2\bin\mingw
+ToolSet: w64 11.0 (local)@F:\Programme\JetBrains\CLion 2023.2.2\bin\mingw
 Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=F:/PPR/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe
+Options:-DCMAKE_MAKE_PROGRAM=F:/Programme/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe
