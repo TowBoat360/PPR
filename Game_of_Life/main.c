@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+// TOM IST DUMM
 #define ALL_ROWS 5
 #define ALL_COLS 6
 #define ALL_BYTES ((ALL_ROWS * ALL_COLS + 7) / 8)
