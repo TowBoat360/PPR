@@ -1,0 +1,4 @@
+"F:\PPR\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=F:/PPR/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S F:\PPR\Game_of_Life_2 -B F:\PPR\Game_of_Life_2\cmake-build-debug
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: F:/PPR/Game_of_Life_2/cmake-build-debug
