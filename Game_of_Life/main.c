@@ -4,7 +4,7 @@
 #define ALL_ROWS 5
 #define ALL_COLS 6
 #define ALL_BYTES ((ALL_ROWS * ALL_COLS + 7) / 8)
-
+// Test um zu schauen obs geht
 void print_generation(void);
 void set_generation_from_string(const char string[]);
 void get_generation_as_string(char string[]);
