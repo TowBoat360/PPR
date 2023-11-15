@@ -111,7 +111,25 @@ void print_generation(void)
 
 void set_generation_from_string(const char string[])
 {
+	int index_string = 0;
 	unsigned char temp = 0b00000000;
+	for (int i = 0; i < ALL_BYTES; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if (string[index_string] == '1')
+			{
+				temp |= (0b10000000 >> j);
+			}
+
+			index_string += 1;
+		}
+
+		generation[i] = temp;
+		temp = 0b00000000;
+	}
+
+	/*unsigned char temp = 0b00000000;
 	unsigned char col = 0b10000000;
 
 	int index = 0;
@@ -132,7 +150,7 @@ void set_generation_from_string(const char string[])
 
 		temp = 0b00000000;
 		col = 0b10000000;
-	}
+	}*/
 }
 
 void get_generation_as_string(char string[])
@@ -158,8 +176,11 @@ bool set_next_generation(void)
 
     char string[ALL_ROWS * ALL_COLS + 1];
 
-    unsigned int col = 0;
-    unsigned int row = 0;
+    int col = 0;
+    int row = 0;
+
+	int grid_row = 0;
+	int grid_col = 0;
 
 	for (int i = 0; i <= ALL_ROWS * ALL_COLS; i++)
 	{
@@ -169,8 +190,14 @@ bool set_next_generation(void)
             row += 1;
         }
 
-        int count = count_neighbours(row, col);
-        bool is_alive = is_set(row, col);
+		if (grid_col == ALL_COLS - 1)
+		{
+			grid_row += 1;
+			grid_col = 0;
+		}
+
+        int count = count_neighbours(grid_row, grid_col);
+        bool is_alive = is_set(generation[row], col);
 
         if(!is_alive && count == 3)
         {
@@ -189,6 +216,7 @@ bool set_next_generation(void)
             change_counter += 1;
         }
 
+		grid_col += 1;
         col += 1;
 	}
 
@@ -205,8 +233,8 @@ int get_alive(int row, int col)
     }
     else
     {
-        unsigned int byte = (row * ALL_COLS + col) / 8;
-        unsigned int bit = (row * ALL_COLS + col) % 8;
+        int byte = (row * ALL_COLS + col) / 8;
+        int bit = (row * ALL_COLS + col) % 8;
 
         return (is_set(generation[byte], bit) ? 1 : 0);
     }
